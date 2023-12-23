@@ -7,3 +7,9 @@ Unreal Engine 5 프로젝트 리포지토리
 
 ### Unreal Engine 규칙
 * [C++ 명명규칙](https://github.com/Allar/ue5-style-guide)
+
+
+### Server Development
+
+* Chatting server : IOCP C++ Server
+* 경매장 api server : Java Spring boot

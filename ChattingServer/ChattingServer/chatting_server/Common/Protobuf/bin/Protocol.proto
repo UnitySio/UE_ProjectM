@@ -1,0 +1,148 @@
+syntax = "proto3";
+package Protocol;
+
+import "Ingame.proto";
+import "Enum.proto";
+
+message C_SIGNUP
+{
+	string id=1;
+	string pw=2;
+	bytes name=3;
+}
+
+message S_SIGNUP
+{
+	bool success=1;
+	uint32 code=2;
+	bytes reason=3;
+}
+
+message C_LOGIN
+{
+	string id=1;
+	string pw=2;
+}
+
+message S_LOGIN
+{
+	bool success=1;
+	uint32 code=2;
+	bytes reason=3;
+
+}
+
+message C_CREATE_ROOM
+{
+	bytes roomName=1;
+	string pw=2;
+}
+
+message S_CREATE_ROOM
+{
+	bool success=1;
+	uint32 code=2;
+	bytes reason=3;
+	uint64 roomCode=4;
+}
+
+message C_ENTER_ROOM
+{
+	uint32 roomCode=1;
+	string pw=2;
+}
+
+message S_ENTER_ROOM
+{
+	bool success=1;
+	uint32 code=2;
+	bytes reason=3;
+	uint32 roomCode = 4;
+}
+
+message C_READY
+{
+	
+}
+
+message S_READY
+{
+	bool success=1;
+	uint32 code=2;
+	bytes reason=3;
+	uint32 userId=4;
+}
+
+message C_START
+{
+	
+}
+
+message S_START
+{
+	bool success=1;
+	uint32 code=2;
+	bytes reason=3;
+	repeated Player playerInfo = 4;
+	uint64 yourNum = 5;
+}
+
+message C_MOVE
+{
+	uint64 playerId = 1;
+	PlayerMoveType playerMoveType = 2;
+}
+message S_MOVE
+{
+	bool success=1;
+	uint32 code=2;
+	bytes reason=3;
+	Player playerInfo=4;
+}
+
+message C_ATTACK
+{
+	uint64 playerId = 1;
+	PlayerAttackType playerAttackType=2;
+
+}
+message S_ATTACK
+{
+	bool success=1;
+	uint32 code=2;
+	bytes reason=3;
+	Player playerInfo = 4;
+	PlayerAttackType playerAttackType=5;
+}
+
+message C_ATTACKED
+{
+	uint64 attackPlayerId = 1;
+	uint64 targetPlayerId = 2;
+}
+
+message S_ATTACKED
+{
+	bool success = 1;
+	uint64 attackPlayerId = 2;
+	uint64 targetPlayerId = 3;
+	uint32 code=4;
+	bytes reason=5;
+	uint64 currentHp = 6;
+}
+
+message S_LOSE
+{
+	bool success = 1;
+	uint32 code=2;
+	bytes reason = 3;
+	uint64 playerId=4;
+}
+
+message S_WIN
+{
+	bool success = 1;
+	uint32 code=2;
+	bytes reason = 3;
+	uint64 playerId=4;
+}

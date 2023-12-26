@@ -1,0 +1,13 @@
+syntax = "proto3";
+package Protocol;
+
+import "Enum.proto";
+
+message Player
+{
+	uint64 id=1;
+	int32 locationX = 2;
+	int32 locationY = 3;
+	int32 hp=4;
+	PlayerType playerType = 5;
+}

@@ -1,0 +1,22 @@
+syntax ="proto3";
+package Protocol;
+
+enum PlayerType
+{
+	PLAYER_MASTER = 0;
+	PLAYER_NONE_MASTER = 1;
+}
+
+enum PlayerMoveType
+{
+	PLAYER_MOVE_LEFT=0;
+	PLAYER_MOVE_RIGHT=1;
+	PLAYER_MOVE_UP=2;
+	PLAYER_MOVE_DOWN=3;
+}
+
+enum PlayerAttackType
+{
+	PLAYER_ATTACK_LEFT=0;
+	PLAYER_ATTACK_RIGHT=1;
+}
